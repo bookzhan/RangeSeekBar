@@ -7,6 +7,7 @@
 <img src="https://github.com/Jay-Goo/RangeSeekBar/blob/master/Gif/screen3.gif" height="500px" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/Jay-Goo/RangeSeekBar/blob/master/Gif/screen4.gif" height="500px">
 </div>
 
+原先的库作者很久都没有维护, 我做了AndroidX,kotlin,以及maven插件的适配,maven依赖改了,请参照下面的maven依赖
 ## 用法
 
 ### Dependencies
