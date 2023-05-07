@@ -14,6 +14,8 @@
 
 [fir.im](https://fir.im/91up) <img src="https://github.com/Jay-Goo/RangeSeekBar/blob/master/Gif/qr.png" height="150px"/>
 
+The original library author hasn't maintained it for a long time. I adapted it to AndroidX, Kotlin, and the Maven plugin. The Maven dependency has also been changed, please refer to the following Maven dependency.
+
 ## Usage
 
 ### Dependencies
@@ -23,13 +25,13 @@
     allprojects {
 		repositories {
 			...
-			maven { url 'https://jitpack.io' }
+            maven { url "https://www.raoyunsoft.com/nexus/repository/maven-releases/" }
 		}
 	}
 
 	dependencies {
 		// sample: implementation 'com.github.Jay-Goo:RangeSeekBar:v3.0.0'
-	        implementation 'com.github.Jay-Goo:RangeSeekBar:Release Version'
+	        implementation 'com.guaishou.bzlib:RangeSeekBar:v2.0.4'
 	}
 
 ```

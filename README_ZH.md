@@ -16,13 +16,13 @@
     allprojects {
 		repositories {
 			...
-			maven { url 'https://jitpack.io' }
+            maven { url "https://www.raoyunsoft.com/nexus/repository/maven-releases/" }
 		}
 	}
 
 	dependencies {
 		// sample: implementation 'com.github.Jay-Goo:RangeSeekBar:v3.0.0'
-	        implementation 'com.github.Jay-Goo:RangeSeekBar:Release Version'
+        implementation 'com.guaishou.bzlib:RangeSeekBar:v2.0.4'
 	}
 
 ```
