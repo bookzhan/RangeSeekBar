@@ -1,12 +1,8 @@
 package com.jaygoo.demo.fragments
 
-import android.graphics.Color
 import android.view.View
 import com.jaygoo.demo.R
 import com.jaygoo.widget.*
-import kotlinx.android.synthetic.main.fragment_range.*
-import kotlinx.android.synthetic.main.fragment_step.*
-import kotlinx.android.synthetic.main.fragment_vertical.*
 import java.util.ArrayList
 
 /**
@@ -38,11 +34,29 @@ import java.util.ArrayList
  * =====================================================
  */
 class VerticalSeekBarFragment: BaseFragment() {
+	lateinit var sb_vertical_1: RangeSeekBar
+	lateinit var sb_vertical_2: RangeSeekBar
+	lateinit var sb_vertical_3: RangeSeekBar
+	lateinit var sb_vertical_4: RangeSeekBar
+	lateinit var sb_vertical_5: RangeSeekBar
+	lateinit var sb_vertical_6: RangeSeekBar
+	lateinit var sb_vertical_7: RangeSeekBar
+	lateinit var sb_vertical_8: RangeSeekBar
+	lateinit var sb_vertical_9: RangeSeekBar
 	override fun getLayoutId(): Int {
 		return R.layout.fragment_vertical
 	}
 
 	override fun initView(view: View) {
+		sb_vertical_1 = view.findViewById(R.id.sb_vertical_1)
+		sb_vertical_2 = view.findViewById(R.id.sb_vertical_2)
+		sb_vertical_3 = view.findViewById(R.id.sb_vertical_3)
+		sb_vertical_4 = view.findViewById(R.id.sb_vertical_4)
+		sb_vertical_5 = view.findViewById(R.id.sb_vertical_5)
+		sb_vertical_6 = view.findViewById(R.id.sb_vertical_6)
+		sb_vertical_7 = view.findViewById(R.id.sb_vertical_7)
+		sb_vertical_8 = view.findViewById(R.id.sb_vertical_8)
+		sb_vertical_9 = view.findViewById(R.id.sb_vertical_9)
 
 		sb_vertical_2?.setIndicatorTextDecimalFormat("0.0")
 		sb_vertical_2?.setProgress(0f, 100f)

@@ -5,7 +5,6 @@ import android.view.View
 import com.jaygoo.demo.R
 import com.jaygoo.widget.OnRangeChangedListener
 import com.jaygoo.widget.RangeSeekBar
-import kotlinx.android.synthetic.main.fragment_single.*
 
 /**
 //                       _ooOoo_
@@ -36,11 +35,24 @@ import kotlinx.android.synthetic.main.fragment_single.*
  * =====================================================
  */
 class SingleSeekBarFragment: BaseFragment() {
+	lateinit var sb_single1: RangeSeekBar
+	lateinit var sb_single2: RangeSeekBar
+	lateinit var sb_single3: RangeSeekBar
+	lateinit var sb_single4: RangeSeekBar
+	lateinit var sb_single5: RangeSeekBar
+	lateinit var sb_single6: RangeSeekBar
 	override fun getLayoutId(): Int {
 		return R.layout.fragment_single
 	}
 
 	override fun initView(view: View) {
+		sb_single1 = view.findViewById(R.id.sb_single1)
+		sb_single2 = view.findViewById(R.id.sb_single2)
+		sb_single3 = view.findViewById(R.id.sb_single3)
+		sb_single4 = view.findViewById(R.id.sb_single4)
+		sb_single5 = view.findViewById(R.id.sb_single5)
+		sb_single6 = view.findViewById(R.id.sb_single6)
+
 		sb_single1?.setProgress(10f)
 		sb_single2?.setProgress(20f)
 		sb_single3?.setProgress(30f)
