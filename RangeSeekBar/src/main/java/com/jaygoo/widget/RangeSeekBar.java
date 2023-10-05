@@ -9,11 +9,14 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Typeface;
 import android.os.Parcelable;
+
 import androidx.annotation.ColorInt;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.IntDef;
+
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +34,7 @@ import static com.jaygoo.widget.SeekBar.INDICATOR_ALWAYS_SHOW;
 
 public class RangeSeekBar extends View {
 
+    private final static String TAG = RangeSeekBar.class.getSimpleName();
     private final static int MIN_INTERCEPT_DISTANCE = 100;
 
     //normal seekBar mode
@@ -155,7 +159,7 @@ public class RangeSeekBar extends View {
     //****************** the above is attr value  ******************//
 
     private boolean isEnable = true;
-    float touchDownX,touchDownY;
+    float touchDownX, touchDownY;
     //剩余最小间隔的进度
     float reservePercent;
     boolean isScaleThumb = false;
@@ -559,7 +563,7 @@ public class RangeSeekBar extends View {
 
     //calculate currTouchSB percent by MotionEvent
     protected float calculateCurrentSeekBarPercent(float touchDownX) {
-        if (currTouchSB == null)return 0;
+        if (currTouchSB == null) return 0;
         float percent = (touchDownX - getProgressLeft()) * 1f / (progressWidth);
         if (touchDownX < getProgressLeft()) {
             percent = 0;
@@ -769,10 +773,12 @@ public class RangeSeekBar extends View {
         }
 
         if (leftValue < minProgress) {
-            throw new IllegalArgumentException("setProgress() min < (preset min - offsetValue) . #min:" + leftValue + " #preset min:" + rightValue);
+            leftValue = minProgress;
+            Log.w(TAG, "setProgress() min < (preset min - offsetValue) . #min:" + leftValue + " #preset min:" + rightValue);
         }
         if (rightValue > maxProgress) {
-            throw new IllegalArgumentException("setProgress() max > (preset max - offsetValue) . #max:" + rightValue + " #preset max:" + rightValue);
+            rightValue = maxProgress;
+            Log.w(TAG, "setProgress() max > (preset max - offsetValue) . #max:" + rightValue + " #preset max:" + rightValue);
         }
 
         float range = maxProgress - minProgress;
@@ -813,7 +819,8 @@ public class RangeSeekBar extends View {
             throw new IllegalArgumentException("setRange() interval must be greater than zero ! #minInterval:" + minInterval);
         }
         if (minInterval >= max - min) {
-            throw new IllegalArgumentException("setRange() interval must be less than (max - min) ! #minInterval:" + minInterval + " #max - min:" + (max - min));
+            Log.w(TAG, "setRange() interval must be less than (max - min) ! #minInterval:" + minInterval + " #max - min:" + (max - min));
+            minInterval = max - min;
         }
 
         maxProgress = max;
@@ -976,6 +983,7 @@ public class RangeSeekBar extends View {
     /**
      * {@link #SEEKBAR_MODE_SINGLE} is single SeekBar
      * {@link #SEEKBAR_MODE_RANGE} is range SeekBar
+     *
      * @param seekBarMode
      */
     public void setSeekBarMode(@SeekBarModeDef int seekBarMode) {
@@ -990,6 +998,7 @@ public class RangeSeekBar extends View {
     /**
      * {@link #TICK_MARK_GRAVITY_LEFT} is number tick mark, it will locate the position according to the value.
      * {@link #TICK_MARK_GRAVITY_RIGHT} is text tick mark, it will be equally positioned.
+     *
      * @param tickMarkMode
      */
     public void setTickMarkMode(@TickMarkModeDef int tickMarkMode) {
@@ -1021,6 +1030,7 @@ public class RangeSeekBar extends View {
      * {@link #TICK_MARK_GRAVITY_LEFT}
      * {@link #TICK_MARK_GRAVITY_RIGHT}
      * {@link #TICK_MARK_GRAVITY_CENTER}
+     *
      * @param tickMarkGravity
      */
     public void setTickMarkGravity(@TickMarkGravityDef int tickMarkGravity) {
@@ -1167,6 +1177,7 @@ public class RangeSeekBar extends View {
     /**
      * the tick mark layout gravity
      * Gravity.TOP and Gravity.BOTTOM
+     *
      * @param tickMarkLayoutGravity
      */
     public void setTickMarkLayoutGravity(@TickMarkLayoutGravityDef int tickMarkLayoutGravity) {
@@ -1180,6 +1191,7 @@ public class RangeSeekBar extends View {
     /**
      * the RangeSeekBar gravity
      * Gravity.TOP and Gravity.BOTTOM
+     *
      * @param gravity
      */
     public void setGravity(@GravityDef int gravity) {
